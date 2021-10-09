@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "settings",
+  "info": {
+    "name": "Settings",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "isCool": {
+      "type": "boolean"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

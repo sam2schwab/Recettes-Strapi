@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  strapi:
+    image: strapi/strapi
+    user: node
+    ports:
+      - 1337:1337
+    volumes:
+      - ./strapi:/srv/app
+  frontend:
+    tty: true
+    image: node
+    user: node
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/home/node/app
+    command: bash -c "cd /home/node/app && yarn install && yarn start"
