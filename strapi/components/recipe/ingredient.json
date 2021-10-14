@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_recipe_ingredients",
+  "info": {
+    "name": "ingredient",
+    "icon": "apple-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ingredient": {
+      "model": "ingredient"
+    },
+    "quantity": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "unit": {
+      "type": "enumeration",
+      "enum": [
+        "tbsp",
+        "tsp"
+      ]
+    },
+    "state": {
+      "type": "string"
+    }
+  }
+}

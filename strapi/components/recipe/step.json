@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_recipe_step",
+  "info": {
+    "name": "step",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
