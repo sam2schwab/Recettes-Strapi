@@ -568,7 +568,10 @@
                   "type": "string",
                   "enum": [
                     "tbsp",
-                    "tsp"
+                    "tsp",
+                    "cup",
+                    "ml",
+                    "g"
                   ]
                 },
                 "state": {
@@ -647,7 +650,10 @@
                   "type": "string",
                   "enum": [
                     "tbsp",
-                    "tsp"
+                    "tsp",
+                    "cup",
+                    "ml",
+                    "g"
                   ]
                 },
                 "state": {

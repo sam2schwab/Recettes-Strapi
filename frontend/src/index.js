@@ -1,7 +1,7 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Router from './Router';
 import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
@@ -11,11 +11,11 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <Router />
     </ApolloProvider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root')
 );
 

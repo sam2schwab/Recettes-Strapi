@@ -27,5 +27,6 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'prettier/prettier': 'error',
+    'react/prop-types': [2, { skipUndeclared: true }],
   },
 };

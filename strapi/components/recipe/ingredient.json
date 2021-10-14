@@ -19,7 +19,10 @@
       "type": "enumeration",
       "enum": [
         "tbsp",
-        "tsp"
+        "tsp",
+        "cup",
+        "ml",
+        "g"
       ]
     },
     "state": {
