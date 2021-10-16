@@ -1,6 +1,4 @@
 import { memo } from 'react';
 
-const Title = ({ children, className }) => (
-  <p className={`text-5xl mb-5 ${className}`}>{children}</p>
-);
+const Title = ({ children }) => <p className="text-5xl mb-5">{children}</p>;
 export default memo(Title);
