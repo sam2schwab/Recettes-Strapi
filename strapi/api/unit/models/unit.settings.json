@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "units",
+  "info": {
+    "name": "Unit",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "ratio": {
+      "type": "float",
+      "required": true
+    },
+    "measure": {
+      "model": "measure",
+      "via": "units"
+    }
+  }
+}

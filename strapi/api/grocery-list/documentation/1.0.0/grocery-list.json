@@ -1,18 +1,19 @@
 {
   "paths": {
-    "/recipes": {
+    "/grocery-list": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the grocery-list's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve grocery-list document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Recipe"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -51,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Recipe"
+          "Grocery-list"
         ],
         "parameters": [
           {
@@ -192,81 +193,18 @@
           }
         ]
       },
-      "post": {
+      "put": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Update a single grocery-list record",
         "responses": {
           "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Recipe"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Recipe"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewRecipe"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/recipes/count": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
+            "description": "Retrieve grocery-list document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "properties": {
-                    "count": {
-                      "type": "integer"
+                    "foo": {
+                      "type": "string"
                     }
                   }
                 }
@@ -306,122 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Recipe"
-        ],
-        "parameters": []
-      }
-    },
-    "/recipes/{id}": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Recipe"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Recipe"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      },
-      "put": {
-        "deprecated": false,
-        "description": "Update a record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Recipe"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Recipe"
+          "Grocery-list"
         ],
         "requestBody": {
           "description": "",
@@ -429,30 +252,19 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewRecipe"
+                "$ref": "#/components/schemas/NewGrocery-list"
               }
             }
           }
         },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
+        "parameters": []
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single grocery-list record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single grocery-list based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,42 +307,23 @@
         },
         "summary": "",
         "tags": [
-          "Recipe"
+          "Grocery-list"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
+        "parameters": []
       }
     }
   },
   "components": {
     "schemas": {
-      "Recipe": {
+      "Grocery-list": {
         "required": [
-          "id",
-          "title",
-          "servings"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "title": {
-            "type": "string"
-          },
-          "servings": {
-            "type": "integer"
-          },
-          "ingredients": {
+          "Ingredient": {
             "type": "array",
             "items": {
               "type": "object",
@@ -564,9 +357,6 @@
                 "quantity": {
                   "type": "number"
                 },
-                "state": {
-                  "type": "string"
-                },
                 "unit": {
                   "required": [
                     "id",
@@ -593,72 +383,15 @@
                       "type": "string"
                     }
                   }
-                }
-              }
-            }
-          },
-          "steps": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "text"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "text": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "text"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "text": {
-                  "type": "string"
-                },
-                "recipes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
                 }
               }
             }
           }
         }
       },
-      "NewRecipe": {
-        "required": [
-          "title",
-          "servings"
-        ],
+      "NewGrocery-list": {
         "properties": {
-          "title": {
-            "type": "string"
-          },
-          "servings": {
-            "type": "integer"
-          },
-          "ingredients": {
+          "Ingredient": {
             "type": "array",
             "items": {
               "type": "object",
@@ -692,9 +425,6 @@
                 "quantity": {
                   "type": "number"
                 },
-                "state": {
-                  "type": "string"
-                },
                 "unit": {
                   "required": [
                     "id",
@@ -723,30 +453,6 @@
                   }
                 }
               }
-            }
-          },
-          "steps": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "text"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "text": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
             }
           },
           "created_by": {
@@ -759,9 +465,5 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "Recipe"
-    }
-  ]
+  "tags": []
 }

@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "measures",
+  "info": {
+    "name": "Measure"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "baseUnit": {
+      "type": "string",
+      "required": true
+    },
+    "units": {
+      "via": "measure",
+      "collection": "unit"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/grocery-list",
+      "handler": "grocery-list.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/grocery-list",
+      "handler": "grocery-list.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/grocery-list",
+      "handler": "grocery-list.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

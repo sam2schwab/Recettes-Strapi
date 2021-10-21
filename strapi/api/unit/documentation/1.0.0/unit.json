@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/recipes": {
+    "/units": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Recipe"
+                    "$ref": "#/components/schemas/Unit"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Recipe"
+          "Unit"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Recipe"
+                  "$ref": "#/components/schemas/Unit"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Recipe"
+          "Unit"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewRecipe"
+                "$ref": "#/components/schemas/NewUnit"
               }
             }
           }
         }
       }
     },
-    "/recipes/count": {
+    "/units/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Recipe"
+          "Unit"
         ],
         "parameters": []
       }
     },
-    "/recipes/{id}": {
+    "/units/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Recipe"
+                  "$ref": "#/components/schemas/Unit"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Recipe"
+          "Unit"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Recipe"
+                  "$ref": "#/components/schemas/Unit"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Recipe"
+          "Unit"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewRecipe"
+                "$ref": "#/components/schemas/NewUnit"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Recipe"
+          "Unit"
         ],
         "parameters": [
           {
@@ -514,240 +514,68 @@
   },
   "components": {
     "schemas": {
-      "Recipe": {
+      "Unit": {
         "required": [
           "id",
-          "title",
-          "servings"
+          "name",
+          "ratio"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "title": {
+          "name": {
             "type": "string"
           },
-          "servings": {
-            "type": "integer"
+          "ratio": {
+            "type": "number"
           },
-          "ingredients": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "quantity"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "ingredient": {
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "quantity": {
-                  "type": "number"
-                },
-                "state": {
-                  "type": "string"
-                },
-                "unit": {
-                  "required": [
-                    "id",
-                    "name",
-                    "ratio"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "ratio": {
-                      "type": "number"
-                    },
-                    "measure": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "steps": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "text"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "text": {
+          "measure": {
+            "required": [
+              "id",
+              "name",
+              "baseUnit"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "baseUnit": {
+                "type": "string"
+              },
+              "units": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
-              }
-            }
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "text"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "text": {
-                  "type": "string"
-                },
-                "recipes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           }
         }
       },
-      "NewRecipe": {
+      "NewUnit": {
         "required": [
-          "title",
-          "servings"
+          "name",
+          "ratio"
         ],
         "properties": {
-          "title": {
+          "name": {
             "type": "string"
           },
-          "servings": {
-            "type": "integer"
+          "ratio": {
+            "type": "number"
           },
-          "ingredients": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "quantity"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "ingredient": {
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "quantity": {
-                  "type": "number"
-                },
-                "state": {
-                  "type": "string"
-                },
-                "unit": {
-                  "required": [
-                    "id",
-                    "name",
-                    "ratio"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "ratio": {
-                      "type": "number"
-                    },
-                    "measure": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "steps": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "text"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "text": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "measure": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
@@ -761,7 +589,7 @@
   },
   "tags": [
     {
-      "name": "Recipe"
+      "name": "Unit"
     }
   ]
 }

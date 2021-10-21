@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "grocery_lists",
+  "info": {
+    "name": "Grocery List"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "Ingredient": {
+      "type": "component",
+      "repeatable": true,
+      "component": "grocery.ingredient"
+    }
+  }
+}

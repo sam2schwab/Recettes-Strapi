@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_recipe_ingredients",
+  "collectionName": "components_grocery_ingredients",
   "info": {
-    "name": "ingredient",
-    "icon": "apple-alt",
+    "name": "Ingredient",
+    "icon": "bread-slice",
     "description": ""
   },
   "options": {},
@@ -11,12 +11,9 @@
       "model": "ingredient"
     },
     "quantity": {
-      "type": "decimal",
       "required": true,
+      "type": "decimal",
       "min": 0
-    },
-    "state": {
-      "type": "string"
     },
     "unit": {
       "model": "unit"

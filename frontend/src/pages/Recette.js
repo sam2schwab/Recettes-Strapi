@@ -21,7 +21,9 @@ const RECIPE_QUERY = gql`
         }
         quantity
         state
-        unit
+        unit {
+          name
+        }
       }
       steps {
         id
@@ -59,7 +61,7 @@ export default memo(function Recette() {
             {recipe.ingredients.map(
               ({ ingredient, id, quantity, unit, state }) => (
                 <div key={id}>
-                  {quantity} {unit} {ingredient.name} {state}
+                  {quantity || ''} {unit?.name} {ingredient.name} {state}
                 </div>
               )
             )}
