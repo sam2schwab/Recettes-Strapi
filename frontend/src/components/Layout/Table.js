@@ -2,7 +2,9 @@ import { memo } from 'react';
 import classNames from 'classnames';
 
 const Table = ({ children }) => (
-  <table className="table-auto w-full">{children}</table>
+  <table className="table-auto border-separate border-spacing-0 w-full">
+    {children}
+  </table>
 );
 export default memo(Table);
 
@@ -25,7 +27,9 @@ export const TableRow = memo(function TableRow({
 }) {
   return (
     <tr
-      className={classNames(clickable && 'hover:bg-blue-50 cursor-pointer')}
+      className={classNames(
+        clickable && 'rounded-md hover:bg-gray-100 cursor-pointer'
+      )}
       onClick={onClick}
     >
       {children}
@@ -34,5 +38,7 @@ export const TableRow = memo(function TableRow({
 });
 
 export const TableCell = memo(function TableCell({ children }) {
-  return <td className="p-2">{children}</td>;
+  return (
+    <td className="p-2 first:rounded-l-md last:rounded-r-md">{children}</td>
+  );
 });

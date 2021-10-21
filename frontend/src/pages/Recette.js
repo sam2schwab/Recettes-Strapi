@@ -6,6 +6,7 @@ import Container from '../components/Layout/Container';
 import Title from '../components/Layout/Title';
 import Subtitle from '../components/Layout/Subtitle';
 import Badge from '../components/Layout/Badge';
+import BackButton from '../components/BackButton';
 
 const RECIPE_QUERY = gql`
   query ($id: ID!) {
@@ -43,7 +44,10 @@ export default memo(function Recette() {
     <Container>
       {recipe && (
         <>
-          <Title>{recipe.title}</Title>
+          <Title>
+            <BackButton />
+            {recipe.title}
+          </Title>
           <div className="pb-2">
             {recipe.tags.map(({ id, text }) => (
               <Badge key={id}>{text}</Badge>
