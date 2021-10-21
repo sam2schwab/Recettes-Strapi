@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import Container from '../components/Layout/Container';
 import Title from '../components/Layout/Title';
 import Subtitle from '../components/Layout/Subtitle';
+import Badge from '../components/Layout/Badge';
 
 const RECIPE_QUERY = gql`
   query ($id: ID!) {
@@ -25,6 +26,10 @@ const RECIPE_QUERY = gql`
         id
         text
       }
+      tags {
+        id
+        text
+      }
     }
   }
 `;
@@ -39,8 +44,13 @@ export default memo(function Recette() {
       {recipe && (
         <>
           <Title>{recipe.title}</Title>
-          <p>{recipe.servings} portions</p>
-          <div className="mb-4">
+          <div className="pb-2">
+            {recipe.tags.map(({ id, text }) => (
+              <Badge key={id}>{text}</Badge>
+            ))}
+          </div>
+          <div className="pb-2">{recipe.servings} portions</div>
+          <div className="pb-4">
             <Subtitle>Ingrédients</Subtitle>
             {recipe.ingredients.map(
               ({ ingredient, id, quantity, unit, state }) => (
@@ -50,13 +60,15 @@ export default memo(function Recette() {
               )
             )}
           </div>
-          <Subtitle>Étapes</Subtitle>
-          {recipe.steps.map(({ id, text }, index) => (
-            <div className="mb-2" key={id}>
-              <span className="font-bold">Étape #{index + 1} : </span>
-              {text}
-            </div>
-          ))}
+          <div className="pb-4">
+            <Subtitle>Étapes</Subtitle>
+            {recipe.steps.map(({ id, text }, index) => (
+              <div className="mb-2" key={id}>
+                <span className="font-bold">Étape #{index + 1} : </span>
+                {text}
+              </div>
+            ))}
+          </div>
         </>
       )}
     </Container>
