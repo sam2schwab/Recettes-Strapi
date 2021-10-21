@@ -6,7 +6,7 @@ import Recettes from './pages/Recettes';
 const Redirect = memo(function Redirect({ to }) {
   const navigate = useNavigate();
   useEffect(() => navigate(to), []);
-  return;
+  return null;
 });
 
 export default memo(function Router() {

@@ -11,6 +11,7 @@ const RECIPE_QUERY = gql`
     recipe(id: $id) {
       title
       id
+      servings
       ingredients {
         id
         ingredient {
@@ -38,6 +39,7 @@ export default memo(function Recette() {
       {recipe && (
         <>
           <Title>{recipe.title}</Title>
+          <p>{recipe.servings} portions</p>
           <div className="mb-4">
             <Subtitle>Ingrédients</Subtitle>
             {recipe.ingredients.map(
