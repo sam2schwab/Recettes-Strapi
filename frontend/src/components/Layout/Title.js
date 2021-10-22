@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
 const Title = ({ children }) => (
-  <p className="flex items-center text-5xl mb-5">{children}</p>
+  <div className="flex items-center text-5xl mb-5">{children}</div>
 );
 export default memo(Title);

@@ -1,6 +1,5 @@
 import { memo, useState, useMemo } from 'react';
 import { useQuery } from '@apollo/client';
-import { gql } from 'graphql-tag';
 import { useNavigate } from 'react-router-dom';
 import Fuse from 'fuse.js';
 import Title from '../components/Layout/Title';
@@ -11,29 +10,14 @@ import { TableHeader } from '../components/Layout/Table';
 import { TableRow } from '../components/Layout/Table';
 import { TableCell } from '../components/Layout/Table';
 import SearchBar from '../components/SearchBar';
+import RecipesQuery from '../queries/RecipesQuery';
 
-const RECIPES_QUERY = gql`
-  query {
-    recipes {
-      title
-      id
-      steps {
-        text
-      }
-      ingredients {
-        ingredient {
-          name
-        }
-      }
-    }
-  }
-`;
 const fuse_keys = ['title', 'steps.text', 'ingredients.ingredient.name'];
 
 export default memo(function Recettes() {
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
-  const { data: { recipes = [] } = {} } = useQuery(RECIPES_QUERY);
+  const { data: { recipes = [] } = {} } = useQuery(RecipesQuery);
 
   const fuse = useMemo(() => new Fuse(recipes, { keys: fuse_keys }), [recipes]);
   const defaultResult = useMemo(

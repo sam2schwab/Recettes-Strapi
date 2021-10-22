@@ -1,5 +1,4 @@
-import { useQuery } from '@apollo/client';
-import { gql } from 'graphql-tag';
+import { useMutation, useQuery } from '@apollo/client';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import Container from '../components/Layout/Container';
@@ -7,39 +6,17 @@ import Title from '../components/Layout/Title';
 import Subtitle from '../components/Layout/Subtitle';
 import Badge from '../components/Layout/Badge';
 import BackButton from '../components/BackButton';
-
-const RECIPE_QUERY = gql`
-  query ($id: ID!) {
-    recipe(id: $id) {
-      title
-      id
-      servings
-      ingredients {
-        id
-        ingredient {
-          name
-        }
-        quantity
-        state
-        unit {
-          name
-        }
-      }
-      steps {
-        id
-        text
-      }
-      tags {
-        id
-        text
-      }
-    }
-  }
-`;
+import Button from '../components/Button';
+import { PlusIcon } from '@heroicons/react/outline';
+import RecipeQuery from '../queries/RecipeQuery';
+import AddRecipeToGroceryListMutation from '../mutations/AddRecipeToGroceryListMutation';
 
 export default memo(function Recette() {
   const { id } = useParams();
-  const { data: { recipe } = {} } = useQuery(RECIPE_QUERY, {
+  const { data: { recipe } = {} } = useQuery(RecipeQuery, {
+    variables: { id },
+  });
+  const [addToGroceryList] = useMutation(AddRecipeToGroceryListMutation, {
     variables: { id },
   });
   return (
@@ -50,6 +27,12 @@ export default memo(function Recette() {
             <BackButton />
             {recipe.title}
           </Title>
+          <div className="pb-2">
+            <Button color="green" onClick={() => addToGroceryList()}>
+              <PlusIcon className="h-5 w-5 mr-2" /> Ajouter a la liste
+              d&apos;épicerie
+            </Button>
+          </div>
           <div className="pb-2">
             {recipe.tags.map(({ id, text }) => (
               <Badge key={id}>{text}</Badge>
