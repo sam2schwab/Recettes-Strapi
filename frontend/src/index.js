@@ -1,9 +1,10 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Router from './Router';
 import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import Layout from './Layout';
+import { BrowserRouter } from 'react-router-dom';
 
 const client = new ApolloClient({
   uri: 'http://localhost:1337/graphql',
@@ -13,7 +14,9 @@ const client = new ApolloClient({
 ReactDOM.render(
   <StrictMode>
     <ApolloProvider client={client}>
-      <Router />
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>
     </ApolloProvider>
   </StrictMode>,
   document.getElementById('root')

@@ -48,7 +48,7 @@ export default memo(function Recettes() {
 
   return (
     <Container>
-      <Title>Livre de Recettes</Title>
+      <Title>Recettes</Title>
       <SearchBar
         placeholder="Rechercher une recette..."
         value={search}
