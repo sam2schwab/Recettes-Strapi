@@ -10,7 +10,7 @@
     "draftAndPublish": false
   },
   "attributes": {
-    "Ingredient": {
+    "ingredients": {
       "type": "component",
       "repeatable": true,
       "component": "grocery.ingredient"

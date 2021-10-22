@@ -323,7 +323,7 @@
           "id": {
             "type": "string"
           },
-          "Ingredient": {
+          "ingredients": {
             "type": "array",
             "items": {
               "type": "object",
@@ -391,7 +391,7 @@
       },
       "NewGrocery-list": {
         "properties": {
-          "Ingredient": {
+          "ingredients": {
             "type": "array",
             "items": {
               "type": "object",

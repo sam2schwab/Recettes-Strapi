@@ -1,5 +1,6 @@
 import { memo, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import ListeEpicerie from './pages/ListeEpicerie';
 import Recette from './pages/Recette';
 import Recettes from './pages/Recettes';
 
@@ -17,6 +18,9 @@ export default memo(function Router() {
         <Route path="recettes">
           <Route index element={<Recettes />} />
           <Route path=":id" element={<Recette />} />
+        </Route>
+        <Route path="epicerie">
+          <Route index element={<ListeEpicerie />} />
         </Route>
       </Routes>
     </BrowserRouter>
