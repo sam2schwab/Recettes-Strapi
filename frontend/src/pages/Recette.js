@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@apollo/client';
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Container from '../components/Layout/Container';
 import Title from '../components/Layout/Title';
@@ -7,12 +7,13 @@ import Subtitle from '../components/Layout/Subtitle';
 import Badge from '../components/Layout/Badge';
 import BackButton from '../components/BackButton';
 import Button from '../components/Button';
-import { PlusIcon } from '@heroicons/react/outline';
+import { CheckIcon, PlusIcon } from '@heroicons/react/outline';
 import RecipeQuery from '../queries/RecipeQuery';
 import AddRecipeToGroceryListMutation from '../mutations/AddRecipeToGroceryListMutation';
 import parse from 'html-react-parser';
 
 export default memo(function Recette() {
+  const [addedToGrocery, setAddedToGrocery] = useState(false);
   const { id } = useParams();
   const { data: { recipe } = {} } = useQuery(RecipeQuery, {
     variables: { id },
@@ -20,6 +21,12 @@ export default memo(function Recette() {
   const [addToGroceryList] = useMutation(AddRecipeToGroceryListMutation, {
     variables: { id },
   });
+
+  function handleAdd() {
+    setAddedToGrocery(true);
+    addToGroceryList();
+  }
+
   return (
     <Container>
       {recipe && (
@@ -29,9 +36,17 @@ export default memo(function Recette() {
             {recipe.title}
           </Title>
           <div className="pb-2">
-            <Button color="green" onClick={() => addToGroceryList()}>
-              <PlusIcon className="h-5 w-5 mr-2" /> Ajouter a la liste
-              d&apos;épicerie
+            <Button color="green" disabled={addedToGrocery} onClick={handleAdd}>
+              {addedToGrocery ? (
+                <>
+                  <CheckIcon className="h-5 w-5 mr-2" /> Ajouté
+                </>
+              ) : (
+                <>
+                  <PlusIcon className="h-5 w-5 mr-2" /> Ajouter
+                </>
+              )}{' '}
+              a la liste d&apos;épicerie
             </Button>
           </div>
           <div className="pb-2">
