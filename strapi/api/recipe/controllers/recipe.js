@@ -7,7 +7,6 @@
 
 async function createIngredientAndUnit(item) {
   //ingredient
-  console.log("converting ingredient ", item.ingredient.name);
   let ingredient = await strapi.api.ingredient.services.ingredient.findOne({
     name: item.ingredient.name,
   });
@@ -28,12 +27,23 @@ async function createIngredientAndUnit(item) {
       });
     }
   }
-  console.log("done converting ingredient ", item.ingredient.name);
   return {
     ...item,
     ingredient: ingredient.id,
     unit: unit ? unit.id : undefined,
   };
+}
+
+async function createTag(item) {
+  let tag = await strapi.api.tag.services.tag.findOne({
+    text: item.text,
+  });
+  if (!tag) {
+    tag = await strapi.api.tag.services.tag.create({
+      text: item.text,
+    });
+  }
+  return tag.id;
 }
 
 const promiseAllSequence = async (iterable, action) => {
@@ -76,6 +86,7 @@ module.exports = {
       recipeData.ingredients,
       createIngredientAndUnit
     );
+    recipeData.tags = await promiseAllSequence(recipeData.tags, createTag);
     const recipe = await strapi.api.recipe.services.recipe.create(recipeData);
     return { recipe };
   },
