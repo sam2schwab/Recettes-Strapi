@@ -10,6 +10,7 @@ import Button from '../components/Button';
 import { PlusIcon } from '@heroicons/react/outline';
 import RecipeQuery from '../queries/RecipeQuery';
 import AddRecipeToGroceryListMutation from '../mutations/AddRecipeToGroceryListMutation';
+import parse from 'html-react-parser';
 
 export default memo(function Recette() {
   const { id } = useParams();
@@ -54,7 +55,7 @@ export default memo(function Recette() {
             {recipe.steps.map(({ id, text }, index) => (
               <div className="mb-2" key={id}>
                 <span className="font-bold">Étape #{index + 1} : </span>
-                {text}
+                {parse(text)}
               </div>
             ))}
           </div>
