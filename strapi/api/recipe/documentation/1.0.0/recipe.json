@@ -535,8 +535,7 @@
             "items": {
               "type": "object",
               "required": [
-                "id",
-                "quantity"
+                "id"
               ],
               "properties": {
                 "id": {
@@ -570,8 +569,7 @@
                 "unit": {
                   "required": [
                     "id",
-                    "name",
-                    "ratio"
+                    "name"
                   ],
                   "properties": {
                     "id": {
@@ -663,8 +661,7 @@
             "items": {
               "type": "object",
               "required": [
-                "id",
-                "quantity"
+                "id"
               ],
               "properties": {
                 "id": {
@@ -698,8 +695,7 @@
                 "unit": {
                   "required": [
                     "id",
-                    "name",
-                    "ratio"
+                    "name"
                   ],
                   "properties": {
                     "id": {

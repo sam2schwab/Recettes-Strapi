@@ -535,8 +535,7 @@
             "items": {
               "required": [
                 "id",
-                "name",
-                "ratio"
+                "name"
               ],
               "properties": {
                 "id": {

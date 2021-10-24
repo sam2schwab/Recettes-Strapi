@@ -13,11 +13,12 @@
   "attributes": {
     "name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "ratio": {
       "type": "float",
-      "required": true
+      "required": false
     },
     "measure": {
       "model": "measure",

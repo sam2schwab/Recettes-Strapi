@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/24/2021 5:01:05 AM"
+    "x-generation-date": "10/24/2021 8:59:43 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -4982,8 +4982,7 @@
                 "unit": {
                   "required": [
                     "id",
-                    "name",
-                    "ratio"
+                    "name"
                   ],
                   "properties": {
                     "id": {
@@ -5050,8 +5049,7 @@
                 "unit": {
                   "required": [
                     "id",
-                    "name",
-                    "ratio"
+                    "name"
                   ],
                   "properties": {
                     "id": {
@@ -5106,8 +5104,7 @@
             "items": {
               "required": [
                 "id",
-                "name",
-                "ratio"
+                "name"
               ],
               "properties": {
                 "id": {
@@ -5180,8 +5177,7 @@
             "items": {
               "type": "object",
               "required": [
-                "id",
-                "quantity"
+                "id"
               ],
               "properties": {
                 "id": {
@@ -5215,8 +5211,7 @@
                 "unit": {
                   "required": [
                     "id",
-                    "name",
-                    "ratio"
+                    "name"
                   ],
                   "properties": {
                     "id": {
@@ -5308,8 +5303,7 @@
             "items": {
               "type": "object",
               "required": [
-                "id",
-                "quantity"
+                "id"
               ],
               "properties": {
                 "id": {
@@ -5343,8 +5337,7 @@
                 "unit": {
                   "required": [
                     "id",
-                    "name",
-                    "ratio"
+                    "name"
                   ],
                   "properties": {
                     "id": {
@@ -5520,8 +5513,7 @@
       "Unit": {
         "required": [
           "id",
-          "name",
-          "ratio"
+          "name"
         ],
         "properties": {
           "id": {
@@ -5567,8 +5559,7 @@
       },
       "NewUnit": {
         "required": [
-          "name",
-          "ratio"
+          "name"
         ],
         "properties": {
           "name": {

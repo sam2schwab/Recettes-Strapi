@@ -517,8 +517,7 @@
       "Unit": {
         "required": [
           "id",
-          "name",
-          "ratio"
+          "name"
         ],
         "properties": {
           "id": {
@@ -564,8 +563,7 @@
       },
       "NewUnit": {
         "required": [
-          "name",
-          "ratio"
+          "name"
         ],
         "properties": {
           "name": {
